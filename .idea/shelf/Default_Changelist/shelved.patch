@@ -1,0 +1,357 @@
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1615341060860)
++++ b/.idea/.gitignore	(date 1615341060860)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Datasource local storage ignored files
++/../../../../../:\Segundo cuatrimestre\Estructura de Datos\Busquedas\.idea/dataSources/
++/dataSources.local.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1615341078055)
++++ b/.idea/modules.xml	(date 1615341078055)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/Busquedas.iml" filepath="$PROJECT_DIR$/.idea/Busquedas.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/Busquedas.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Busquedas.iml b/.idea/Busquedas.iml
+new file mode 100644
+--- /dev/null	(date 1615341077983)
++++ b/.idea/Busquedas.iml	(date 1615341077983)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1615341078148)
++++ b/.idea/vcs.xml	(date 1615341078148)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1615341078102)
++++ b/.idea/misc.xml	(date 1615341078102)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Main.java b/Main.java
+new file mode 100644
+--- /dev/null	(date 1615340632220)
++++ b/Main.java	(date 1615340632220)
+@@ -0,0 +1,103 @@
++import java.util.Scanner;
++import java.util.ArrayList;
++import java.util.Collections;
++
++public class cMain {
++    static Scanner sc = new Scanner(System.in);
++
++    public static void main(String[] args) {
++
++
++        int decision, posicion;
++
++        ArrayList<Libro> listaLibros = new ArrayList<>();
++
++        listaLibros.add(new Libro("100 Anios de soledad", "Gabriel Garcia Marques", "1234567890234", 2002));
++        listaLibros.add(new Libro("Bajo la misma estrella", "nose", "0929283818121", 2010));
++        listaLibros.add(new Libro("Lo que fue de ella", "no me acuerdo", "1029283345231", 2002));
++        listaLibros.add(new Libro("Desde mi cielo", "tampoco me lo se", "5643218654348", 2002));
++        listaLibros.add(new Libro("Viaje al centro de la tierra", "Julio Verne", "9878768565434", 2002));
++        listaLibros.add(new Libro("El anticristo", "Friedrich Nietzsche", "3425769807864", 2002));
++        listaLibros.add(new Libro("La metamosfosis", "Franz Kafka", "2938947583741", 2002));
++        listaLibros.add(new Libro("La naranja mecanica", "Anthony Burgess", "1902837458692", 2002));
++
++        Search busqueda = new Search();
++
++        //System.out.println(listaLibros.toString());
++
++        do{
++            
++            System.out.println("Elija la accion que desee: ");
++            System.out.println("1.-Agregar libro");
++            System.out.println("2.-Remover");
++            System.out.println("3.-Listar ");
++            System.out.println("4.-Buscar libro");
++            System.out.println("5.-Salir");
++            decision = sc.nextInt();
++
++            switch (decision) {
++                case 1:
++                    Libro libro = registrarLibro();
++                    listaLibros.add(libro);
++                break;
++                case 2:
++                    Libro libro2 = registrarLibro();
++                    posicion = busqueda.binaria(listaLibros, libro2, false);
++                    if(posicion >= 0){
++                        //System.out.println("Posicion: " + posicion);
++                        posicion = busqueda.binaria(listaLibros, libro2, false);
++                        listaLibros.remove(posicion);
++                        System.out.println("El libro ha sido borrado con exito");
++                    }else{
++                        System.out.println("Libro no encontrado");
++                    }
++                    
++                break;
++                case 3:
++                    System.out.println("Elementos ordenados");
++                    Collections.sort(listaLibros);
++                    System.out.println("ISBN \t\tTitulo \tAutor \tEdicion");
++                    for(int i = 0; i < listaLibros.size(); i++){
++                        System.out.println(listaLibros.get(i).toString());
++                    }
++                break;
++                case 4:
++                    Libro libro3 = registrarLibro();
++                    posicion = busqueda.binaria(listaLibros, libro3, false);
++                    if(posicion >= 0){
++                        System.out.println("Libro encontrado en la posicion: " + posicion);
++                    }else{
++                        System.out.println("Libro no encontrado");
++                    }
++                    
++                break;    
++
++            }
++        
++        }while(decision != 5);
++        
++    }
++    public static Libro registrarLibro()
++    {
++        String autor;
++        String titulo;
++        String isbn;
++        int edicion;
++        sc.nextLine();
++        System.out.println("Ingresar autor");
++        autor = sc.nextLine();
++        sc.nextLine();
++        System.out.println("Ingrese el titulo del libro");
++        titulo = sc.nextLine();
++        do {
++            System.out.println("Ingrese el isbn");
++            isbn = sc.next();
++        } while (isbn.length() != 13);
++        System.out.println("Ingrese la edicion");
++        edicion = sc.nextInt();
++        Libro libro = new Libro(titulo, autor, isbn, edicion);
++        return libro;
++    }
++}
++
++
+Index: Libro.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Libro.java b/Libro.java
+new file mode 100644
+--- /dev/null	(date 1615256821238)
++++ b/Libro.java	(date 1615256821238)
+@@ -0,0 +1,78 @@
++import java.util.Scanner;
++
++public class Libro implements Comparable<Libro> {
++    static Scanner sc= new Scanner(System.in);
++    private String titulo;
++    private String autor;
++    private String isbn;
++    private int edicion;
++
++    public Libro(String titulo, String autor, String isbn, int edicion){
++        this.titulo = titulo;
++        this.autor = autor;
++        this.isbn = isbn;
++        this.edicion = edicion;
++    }
++    public String getTitulo(){
++        return titulo;
++    }
++
++    public void setTitulo(String titulo){
++        this.titulo = titulo;
++    }
++
++    public String getAutor(){
++        return autor;
++    }
++    public void setAutor(String autor){
++        this.autor = autor;
++    }
++
++    public String getIsbn(){
++        return isbn;
++    }
++    public void setIsbn(String isbn){
++        this.isbn = isbn;
++    }
++
++    public int getEdicion() {
++        return edicion;
++    }
++    public void setEdicion(int edicion) {
++        this.edicion = edicion;
++    }
++
++    @Override
++    public int compareTo(Libro libro) {
++        int resultado = this.isbn.compareTo(libro.getIsbn());
++        if(resultado == 0){ //titulos igual
++            int resultado2 = this.titulo.compareTo(libro.getTitulo());
++            if (resultado2  == 0){
++                int resultado3 = this.autor.compareTo(libro.getAutor());
++                if( resultado3 == 0){
++                    if(this.edicion == libro.getEdicion()){
++                        return 0;
++                    }
++                }
++                if(resultado3 > 0){
++                    return 1;
++                }else{
++                    return -1;
++                }
++            }
++            if(resultado2 > 0){
++                return 1;
++            }else{
++                return -1;
++            }
++        }
++        return resultado;
++    }
++
++    @Override
++    public String toString(){
++        return (this.isbn +"\t"+ this.titulo + "\t" + this.autor + "\t" + this.edicion);
++    }
++
++
++}
+Index: Search.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Search.java b/Search.java
+new file mode 100644
+--- /dev/null	(date 1615172701204)
++++ b/Search.java	(date 1615172701204)
+@@ -0,0 +1,55 @@
++
++import java.util.ArrayList; //
++
++public class Search <T extends Comparable <T> > {
++    public int lineal(ArrayList<T> a, T b, boolean d){
++        int pos = -1;
++        int iter = 0;
++
++        for(int i = 0; i < a.size(); i++){
++            if (b.compareTo(a.get(i)) == 0){
++                pos = i;
++            }
++            if(d){
++                iter++;
++            }
++        }
++        if(d){
++            System.out.println("Iter: "+iter);
++        }
++        return pos;
++    }
++
++    public int binaria(ArrayList<T> a, T b, boolean d){
++        int pos = -1;
++        int tam = (a.size()-1)/2;
++        int inicio=0, fin = a.size()-1;
++        int centro = tam;
++        
++      while (inicio<=fin){
++        centro = inicio + (fin - inicio) / 2;  
++        if (d){
++            System.out.println("inicio:" + inicio + " fin:" + fin + " centro:" + centro + " tam:"+tam);
++        }
++        if (b.compareTo(a.get(centro)) == 0){ // El elemento
++            pos = centro;
++            // se encuentra
++        }
++        // compareTo   regresa 0 si los elementos son iguales
++        //             regresa valor positivo si el elemento es mayor
++        //             regresa valor negativo si el elemento es menor
++        if (b.compareTo(a.get(centro)) > 0){  // b es mayor a centro Derecha
++            inicio = centro +1;
++        }
++        else
++        {
++            fin = centro - 1;
++                                            // izquierda
++        }
++        tam /= 2;
++        
++      }
++        
++        return pos;
++    }
++}
