@@ -13,9 +13,9 @@ public class cMain {
         ArrayList<Libro> listaLibros = new ArrayList<>();
 
         listaLibros.add(new Libro("100 Anios de soledad", "Gabriel Garcia Marques", "1234567890234", 2002));
-        listaLibros.add(new Libro("Bajo la misma estrella", "nose", "0929283818121", 2010));
-        listaLibros.add(new Libro("Lo que fue de ella", "no me acuerdo", "1029283345231", 2002));
-        listaLibros.add(new Libro("Desde mi cielo", "tampoco me lo se", "5643218654348", 2002));
+        listaLibros.add(new Libro("Bajo la misma estrella", "John Green", "0929283818121", 2010));
+        listaLibros.add(new Libro("Lo que fue de ella", "Gayle Forman", "1029283345231", 2002));
+        listaLibros.add(new Libro("Desde mi cielo", "Alice Sebold", "5643218654348", 2002));
         listaLibros.add(new Libro("Viaje al centro de la tierra", "Julio Verne", "9878768565434", 2002));
         listaLibros.add(new Libro("El anticristo", "Friedrich Nietzsche", "3425769807864", 2002));
         listaLibros.add(new Libro("La metamosfosis", "Franz Kafka", "2938947583741", 2002));
