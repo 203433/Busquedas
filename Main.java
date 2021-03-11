@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class cMain {
+public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -42,10 +42,11 @@ public class cMain {
                 break;
                 case 2:
                     Libro libro2 = registrarLibro();
+                    Collections.sort(listaLibros);
                     posicion = busqueda.binaria(listaLibros, libro2, false);
                     if(posicion >= 0){
                         //System.out.println("Posicion: " + posicion);
-                        posicion = busqueda.binaria(listaLibros, libro2, false);
+                  
                         listaLibros.remove(posicion);
                         System.out.println("El libro ha sido borrado con exito");
                     }else{
@@ -63,6 +64,7 @@ public class cMain {
                 break;
                 case 4:
                     Libro libro3 = registrarLibro();
+                    Collections.sort(listaLibros);
                     posicion = busqueda.binaria(listaLibros, libro3, false);
                     if(posicion >= 0){
                         System.out.println("Libro encontrado en la posicion: " + posicion);
